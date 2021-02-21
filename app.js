@@ -1,6 +1,6 @@
 'use strict';
 
-let maxClicks = 2;
+let maxClicks = 26;
 let attempt =0;
 
 let div = document.getElementById('container');
@@ -101,13 +101,12 @@ function handleClicking(event){
           li.textContent = `${arrOfObject[i].productName} it had  ${arrOfObject[i].vote} vote, and seen ${arrOfObject[i].time} time.`;}
           button.removeEventListener('click', viewResult);
       }
-      leftImage.removeEventListener('click', handleClicking);
-      middleImage.removeEventListener('click', handleClicking);
-      rightImage.removeEventListener('click', handleClicking);
+      leftImageElement.removeEventListener('click', handleClicking);
+      middleImageElement.removeEventListener('click', handleClicking);
+      rightImageElement.removeEventListener('click', handleClicking);
 
     
     }
-    renderImage();
 
 
 }
