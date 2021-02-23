@@ -13,6 +13,7 @@ let arrOfObject = [];
 let nameArr=[];
 let imgCountArr=[];
 let arrOfVotes=[];
+let arrOfThreeImage=[];
 function BusMarket(productName, imagePath){
 this.productName=productName;
 this.imagePath=imagePath;
@@ -65,40 +66,30 @@ let rightImage;
 // console.log(Arr1.includes(middleImage));
 // console.log(Arr1.includes(rightImage));
 
-let Arr2=[];
 function renderImage(){
 leftImage = randomGenerate();
 middleImage = randomGenerate();
 rightImage = randomGenerate();
 
 
+while (leftImage === middleImage || leftImage === rightImage || middleImage === rightImage || 
+    arrOfThreeImage.includes(leftImage) || arrOfThreeImage.includes(middleImage)||arrOfThreeImage.includes(rightImage) )
+     {
+    middleImage = randomGenerate();
+    rightImage = randomGenerate();
+}
 
-//     let Arr1 = [leftImage1, middleImage1, rightImage1];
-//     do{
-//     leftImage = randomGenerator();
-//     }
-//     while(Arr1.includes(leftImage));
-//     leftImage1 = leftImage;
-//     Arr1.push(leftImage);
-//     do{
-//     middleImage = randomGenerator();
-//     }
-//     while(Arr1.includes(middleImage))
-//     middleImage1 = middleImage;
-//     Arr1.push(middleImage);
-//     do{
-//     rightImage = randomGenerator();
-//     }
-//     while(Arr1.includes(rightImage)){
-//     rightImage1 = rightImage;
-//     Arr2[leftImage].imageDisplayed++;
-//     leftImage.src = Arr2[FirstImageIndex].imagePath;
-//     Arr2[middleImage].imageDisplayed++;
-//     middleImage.src = Arr2[middleImage].imagePath;
-//     Arr2[rightImage].imageDisplayed++;
-//     rightImage.src = Arr2[rightImage].imagePath;
-// }
-    
+arrOfThreeImage[0]=leftImage;
+arrOfThreeImage[1]=middleImage;
+arrOfThreeImage[2]=rightImage;
+
+arrOfObject[leftImage].imageDisplayed++;
+arrOfObject[middleImage].imageDisplayed++;
+arrOfObject[rightImage].imageDisplayed++;
+
+leftImageElement.setAttribute('src', arrOfObject[leftImage].imgPath);
+middleImageElement.setAttribute('src', arrOfObject[middleImage].imgPath);
+rightImageElement.setAttribute('src', arrOfObject[rightImage].imgPath);
 
 while((leftImage === rightImage) || (leftImage === middleImage) || (middleImage === rightImage)){
     leftImage = randomGenerate();
