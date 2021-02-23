@@ -3,6 +3,7 @@
 let maxClicks = 25;
 let attempt =0;
 
+
 let div = document.getElementById('container');
 let leftImageElement = document.getElementById('leftimage');
 let middleImageElement = document.getElementById('middleimage');
@@ -127,6 +128,7 @@ function handleClicking(event){
       }else if(event.target.id === 'rightimage'){
           arrOfObject[rightImage].vote++;
       } 
+      savedImage();
       renderImage();
     //   console.log(arrOfObject);
   }else {
@@ -142,10 +144,10 @@ function handleClicking(event){
           ul.appendChild(li);
 
           li.textContent = `${arrOfObject[i].productName} it had  ${arrOfObject[i].vote} vote, and seen ${arrOfObject[i].imageDisplayed} time.`;}
+
           chartRender();
 
           button.removeEventListener('click', viewResult);
-         
 
       }
       for ( let j = 0 ; j < arrOfObject.length; j++){
@@ -159,6 +161,7 @@ function handleClicking(event){
       
     
     }
+
 }
 
 function chartRender(){
@@ -188,23 +191,28 @@ function chartRender(){
         options: {}
     });
 }
-// function chartRender(){
-//   var ctx = document.getElementById('myChart').getContext('2d');
-//   var chart = new chart(ctx, {
-//       type: 'bar',
-//       data: {
-//           label: nameArr,
-//           datasets: [{
-//               label: 'Bus Mall',
-//               backgroundColor: '#e36bae',
-//               borderColor: 'rgb(255, 99, 132)',
-//               data:arrOfVotes,
-//           }, {
-//               label: 'Image Display',
-//               backgroundColor: '#f1d1d0',
-//               borderColor: 'rgb(155,100,30)',
-//               data:imgCountArr,
-//           }]
-//       },
-//       Option: {}
-//       }) 
+
+
+function savedImage(){
+    let order = JSON.stringify(arrOfObject);
+    localStorage.setItem('AllOrders', order);
+  }
+  
+  function getOrder(){
+    let gettingOrder = localStorage.getItem('AllOrders');
+    let list = JSON.parse(gettingOrder);
+    // i still dont have any order
+    // console.log(list);
+    // // null value
+    if(list){ // its not null truthy 
+      // console.log(list);
+      arrOfObject = list;
+    }else{
+      arrOfObject = [];
+    }
+    renderImage();
+  }
+  getOrder();
+
+//   orderForm.addEventListener('submit', handleSubmit);
+// getOrder();
