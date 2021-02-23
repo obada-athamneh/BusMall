@@ -75,6 +75,7 @@ rightImage = randomGenerate();
 while (leftImage === middleImage || leftImage === rightImage || middleImage === rightImage || 
     arrOfThreeImage.includes(leftImage) || arrOfThreeImage.includes(middleImage)||arrOfThreeImage.includes(rightImage) )
      {
+    leftImage = randomGenerate();
     middleImage = randomGenerate();
     rightImage = randomGenerate();
 }
@@ -82,19 +83,19 @@ while (leftImage === middleImage || leftImage === rightImage || middleImage === 
 arrOfThreeImage[0]=leftImage;
 arrOfThreeImage[1]=middleImage;
 arrOfThreeImage[2]=rightImage;
-
+console.log(arrOfThreeImage);
 arrOfObject[leftImage].imageDisplayed++;
 arrOfObject[middleImage].imageDisplayed++;
 arrOfObject[rightImage].imageDisplayed++;
 
-leftImageElement.setAttribute('src', arrOfObject[leftImage].imgPath);
-middleImageElement.setAttribute('src', arrOfObject[middleImage].imgPath);
-rightImageElement.setAttribute('src', arrOfObject[rightImage].imgPath);
+// leftImageElement.setAttribute('src', arrOfObject[leftImage].imgPath);
+// middleImageElement.setAttribute('src', arrOfObject[middleImage].imgPath);
+// rightImageElement.setAttribute('src', arrOfObject[rightImage].imgPath);
 
-while((leftImage === rightImage) || (leftImage === middleImage) || (middleImage === rightImage)){
-    leftImage = randomGenerate();
-    rightImage = randomGenerate();
-}
+// while((leftImage === rightImage) || (leftImage === middleImage) || (middleImage === rightImage)){
+//     leftImage = randomGenerate();
+//     rightImage = randomGenerate();
+// }
 
 
 
@@ -110,9 +111,9 @@ arrOfObject[rightImage].imageDisplayed++;
 renderImage();
 
 
-leftImageElement.addEventListener('click', handleClicking);
-middleImageElement.addEventListener('click', handleClicking);
-rightImageElement.addEventListener('click', handleClicking);
+div.addEventListener('click', handleClicking);
+// middleImageElement.addEventListener('click', handleClicking);
+// rightImageElement.addEventListener('click', handleClicking);
 
 
 function handleClicking(event){
@@ -150,9 +151,9 @@ function handleClicking(event){
      }
      chartRender();
 
-     leftImageElement.removeEventListener('click', handleClicking);
-      middleImageElement.removeEventListener('click', handleClicking);
-      rightImageElement.removeEventListener('click', handleClicking);
+     div.removeEventListener('click', handleClicking);
+    //   middleImageElement.removeEventListener('click', handleClicking);
+    //   rightImageElement.removeEventListener('click', handleClicking);
       
     
     }
