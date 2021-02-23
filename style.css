@@ -1,6 +1,18 @@
 img{
     width: 30%;
+    height: 288px;
+    margin: 0 auto;
 }
 #myChart{
     width: 30%;
 }
+main{
+width: 960px;
+margin: 0 auto;
+}
+   header{
+       width: 960px;
+       margin: 0 auto;
+       text-align: center;
+   }
+ 
