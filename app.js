@@ -83,7 +83,7 @@ while (leftImage === middleImage || leftImage === rightImage || middleImage === 
 arrOfThreeImage[0]=leftImage;
 arrOfThreeImage[1]=middleImage;
 arrOfThreeImage[2]=rightImage;
-console.log(arrOfThreeImage);
+// console.log(arrOfThreeImage);
 arrOfObject[leftImage].imageDisplayed++;
 arrOfObject[middleImage].imageDisplayed++;
 arrOfObject[rightImage].imageDisplayed++;
@@ -98,6 +98,7 @@ arrOfObject[rightImage].imageDisplayed++;
 // }
 
 
+console.log(leftImage , middleImage , rightImage);
 
 leftImageElement.setAttribute('src', arrOfObject[leftImage].imagePath);
 middleImageElement.setAttribute('src', arrOfObject[middleImage].imagePath);
@@ -127,7 +128,7 @@ function handleClicking(event){
           arrOfObject[rightImage].vote++;
       } 
       renderImage();
-      console.log(arrOfObject);
+    //   console.log(arrOfObject);
   }else {
       let ul = document.getElementById('list');
       div.appendChild(ul);
@@ -141,6 +142,8 @@ function handleClicking(event){
           ul.appendChild(li);
 
           li.textContent = `${arrOfObject[i].productName} it had  ${arrOfObject[i].vote} vote, and seen ${arrOfObject[i].imageDisplayed} time.`;}
+          chartRender();
+
           button.removeEventListener('click', viewResult);
          
 
@@ -149,7 +152,6 @@ function handleClicking(event){
         arrOfVotes.push((arrOfObject[j]).vote);
         imgCountArr.push(arrOfObject[j].imageDisplayed ) 
      }
-     chartRender();
 
      div.removeEventListener('click', handleClicking);
     //   middleImageElement.removeEventListener('click', handleClicking);
