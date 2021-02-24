@@ -70,13 +70,13 @@ let rightImage;
 function renderImage(){
 leftImage = randomGenerate();
 middleImage = randomGenerate();
-rightImage = randomGenerate();
+rightImage = randomGenerate(); 
 
 
 while (leftImage === middleImage || leftImage === rightImage || middleImage === rightImage || 
     arrOfThreeImage.includes(leftImage) || arrOfThreeImage.includes(middleImage)||arrOfThreeImage.includes(rightImage) )
      {
-    leftImage = randomGenerate();
+    leftImage = randomGenerate(); 
     middleImage = randomGenerate();
     rightImage = randomGenerate();
 }
