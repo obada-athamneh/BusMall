@@ -185,7 +185,7 @@ function chartRender(){
                 data: imgCountArr,
     
             }]
-        },
+        }, 
     
         // Configuration options go here
         options: {}
