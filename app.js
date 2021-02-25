@@ -85,9 +85,9 @@ arrOfThreeImage[0]=leftImage;
 arrOfThreeImage[1]=middleImage;
 arrOfThreeImage[2]=rightImage;
 // console.log(arrOfThreeImage);
-arrOfObject[leftImage].imageDisplayed++;
-arrOfObject[middleImage].imageDisplayed++;
-arrOfObject[rightImage].imageDisplayed++;
+// arrOfObject[leftImage].imageDisplayed++;
+// arrOfObject[middleImage].imageDisplayed++;
+// arrOfObject[rightImage].imageDisplayed++;
 
 // leftImageElement.setAttribute('src', arrOfObject[leftImage].imgPath);
 // middleImageElement.setAttribute('src', arrOfObject[middleImage].imgPath);
@@ -128,8 +128,8 @@ function handleClicking(event){
       }else if(event.target.id === 'rightimage'){
           arrOfObject[rightImage].vote++;
       } 
-      savedImage();
       renderImage();
+    
     //   console.log(arrOfObject);
   }else {
       let ul = document.getElementById('list');
@@ -158,7 +158,7 @@ function handleClicking(event){
      div.removeEventListener('click', handleClicking);
     //   middleImageElement.removeEventListener('click', handleClicking);
     //   rightImageElement.removeEventListener('click', handleClicking);
-      
+        savedImage();
     
     }
 
@@ -207,10 +207,11 @@ function savedImage(){
     if(list){ // its not null truthy 
       // console.log(list);
       arrOfObject = list;
-    }else{
-      arrOfObject = [];
+      renderImage();
     }
-    renderImage();
+    // }else{
+    //   arrOfObject = [];
+    // }
   }
   getOrder();
 
